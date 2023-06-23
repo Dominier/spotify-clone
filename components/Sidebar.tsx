@@ -5,6 +5,8 @@ import { useMemo } from "react";
 import { HiHome } from "react-icons/hi";
 import { BiHome } from "react-icons/bi";
 
+import Box from "./Box";
+
 interface SidebarProps {
     children: React.ReactNode;
 }
@@ -30,8 +32,12 @@ const Sidebar: React.FC<SidebarProps> = ({
     ], [pathname]);
 
     return (
-        <div>
-            {children}
+        <div className="flex h-full">
+            <div className="hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] p-2">
+                <Box>
+                    Sidebar Navigation
+                </Box>
+            </div>
         </div>
     );
 }
