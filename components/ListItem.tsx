@@ -24,7 +24,8 @@ const ListItem: React.FC<ListItemProps> = ({
 
     return (
         <button
-            className="
+        onClick={onClick}
+        className="
             relative
             group
             flex
