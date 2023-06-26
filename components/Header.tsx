@@ -6,7 +6,7 @@ import { RxCaretRight } from "react-icons/rx";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 
-import Button from "./Button"
+import Button from "./Button";
 
 interface HeaderProps {
     children: React.ReactNode;
@@ -130,6 +130,7 @@ const Header: React.FC<HeaderProps> = ({
                     </>
                 </div>
             </div>
+                {children}
         </div>
     );
 }
