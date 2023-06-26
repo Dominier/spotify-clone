@@ -10,7 +10,7 @@ interface SupabaseProviderProps {
     children: React.ReactNode;
 };
 
-const SupabaseProviderProps: React.FC<SupabaseProviderProps> = ({
+const SupabaseProvider: React.FC<SupabaseProviderProps> = ({
     children
 }) => {
     const [supabaseCilent] = useState(() =>
@@ -23,3 +23,5 @@ const SupabaseProviderProps: React.FC<SupabaseProviderProps> = ({
        </SessionContextProvider>
     )
 }
+
+export default SupabaseProvider;
