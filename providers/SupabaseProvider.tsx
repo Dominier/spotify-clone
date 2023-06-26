@@ -1,13 +1,18 @@
 "use client";
 
-import { Database } from "@/types_db";
+import { useState } from "react";
 
-interface SupaBaseProviderProps {
+import { Database } from "@/types_db";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+
+interface SupabaseProviderProps {
     children: React.ReactNode;
 };
 
-const SupaBaseProviderProps: React.FC<SupabaseProviderProps> = ({
+const SupabaseProviderProps: React.FC<SupabaseProviderProps> = ({
     children
 }) => {
-    
+    const [supabaseCilent] = useState(() =>
+        createClientComponentClient<Database>()
+    )
 }
