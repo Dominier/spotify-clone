@@ -11,14 +11,20 @@ const AuthModal = () => {
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
     const { session } = useSessionContext();
-    const {} = useAuthModel();
+    const { onClose, isOpen } = useAuthModel();
+
+    const onChange = (open: boolean) => {
+        if (!isOpen) {
+            onClose();
+        }
+    }
 
     return (
         <Modal
             title="Welcome back"
             description="Login to your account"
-            isOpen
-            onChange={() => {}}
+            isOpen={isOpen}
+            onChange={onChange}
         >
             <Auth
                 theme="dark"
