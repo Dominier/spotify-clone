@@ -7,10 +7,12 @@ import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { FaUserAlt } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 
 import Button from "./Button";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
+
 
 
 interface HeaderProps {
@@ -35,7 +37,9 @@ const Header: React.FC<HeaderProps> = ({
         router.refresh();
 
         if (error) {
-            console.log(error);
+            toast.error(error.message);
+        } else {
+            toast.success('Logged out!')
         }
     }
 
