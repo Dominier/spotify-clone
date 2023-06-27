@@ -24,11 +24,10 @@ export default function RootLayout({
       <body className={font.className}>
           <SupabaseProvider>
             <UserProvider>
-              <ModalProvider>
-                <Sidebar>
-                  {children}
-                </Sidebar>
-              </ModalProvider>
+              <ModalProvider />
+              <Sidebar>
+                {children}
+              </Sidebar>
             </UserProvider>
           </SupabaseProvider>
         </body>
