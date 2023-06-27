@@ -1,3 +1,4 @@
+// fetch userDetails and subscription at the same time
 import { User } from "@supabase/auth-helpers-nextjs";
 import { useEffect, createContext, useState, useContext } from "react";
 import { useSessionContext, useUser as useSupaUser } from "@supabase/auth-helpers-react";
