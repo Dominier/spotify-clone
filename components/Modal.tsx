@@ -59,11 +59,11 @@ const Modal: React.FC<ModalProps> = ({
                             {title}
                         </Dialog.Title>
                         <Dialog.Description
-                        className="
-                            mb-5
-                            text-sm
-                            leading-normal
-                            text-center
+                            className="
+                                mb-5
+                                text-sm
+                                leading-normal
+                                text-center
                         ">
                             {description}
                         </Dialog.Description>
@@ -72,21 +72,23 @@ const Modal: React.FC<ModalProps> = ({
                         </div>
                         <Dialog.Close asChild>
                             <button
-                            className="
-                                text-neutral-400
-                                hover:text-white
-                                absolute
-                                top-[10px]
-                                right-[10px]
-                                inline-flex
-                                h-[25px]
-                                w-[25px]
-                                appearance-none
-                                items-center
-                                justify-center
-                                rounded-full
-                                focus:outline-none
-                            ">
+                                className="
+                                    text-neutral-400
+                                    hover:text-white
+                                    absolute
+                                    top-[10px]
+                                    right-[10px]
+                                    inline-flex
+                                    h-[25px]
+                                    w-[25px]
+                                    appearance-none
+                                    items-center
+                                    justify-center
+                                    rounded-full
+                                    focus:outline-none
+                                "
+                                aria-label="Close"
+                            >
                                 <IoMdClose />
                             </button>
                         </Dialog.Close>
