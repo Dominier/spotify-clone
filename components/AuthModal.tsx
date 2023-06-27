@@ -5,13 +5,13 @@ import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from "@supabase/auth-ui-shared";
 
 import Modal from "./Modal";
-import useAuthModel from "@/hooks/useAuthModal";
+import useAuthModal from "@/hooks/useAuthModal";
 
 const AuthModal = () => {
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
     const { session } = useSessionContext();
-    const { onClose, isOpen } = useAuthModel();
+    const { onClose, isOpen } = useAuthModal();
 
     const onChange = (open: boolean) => {
         if (!isOpen) {
