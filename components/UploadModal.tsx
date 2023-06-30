@@ -1,14 +1,25 @@
+"use client"
+
+import useUploadModal from "@/hooks/useUploadModal";
 import Modal from "./Modal";
 
 const UploadModal = () => {
+    const uploadModal = useUploadModal();
+    const onChange = (open: boolean) => {
+        if (!open) {
+            // reset the form
+            uploadModal.onClose()
+        }
+
+    }
     return (
         <Modal
-            title="Upload modal title"
-            description="Upload modal description"
-            isOpen
-            onChange={() => {}}
+            title="Add a song"
+            description="Upload an mp3 file"
+            isOpen={uploadModal.isOpen}
+            onChange={onChange}
         >
-            Upload Content
+            Form
         </Modal>
     );
 }
