@@ -4,6 +4,7 @@ import uniqid from "uniqid";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 import useUploadModal from "@/hooks/useUploadModal";
 import { useUser } from "@/hooks/useUser";
@@ -14,10 +15,12 @@ import Button from "./Button";
 
 
 
+
 const UploadModal = () => {
     const [isLoading, setIsLoading] = useState(false);
     const uploadModal = useUploadModal();
     const { user } = useUser();
+    const supabaseClient = useSupabaseClient();
 
     const {
         register,
@@ -55,6 +58,36 @@ const UploadModal = () => {
             }
 
             const uniqueID = uniqid();
+
+            // upload song
+            const {
+                data: songData,
+                error: songError,
+            } = await supabaseClient
+            .storage
+            .from('songs')
+            .upload(`song-${values.title}-${uniqueID}`, songFile, {
+                cacheControl: '3600',
+                upsert: false
+            });
+
+            if (songError) {
+                setIsLoading(false);
+                return toast.error('Failed uploading song.');
+            }
+
+            // upload image
+            const {
+                data: imageData,
+                error: imageError,
+            } = await supabaseClient
+            .storage
+            .from('images')
+            .upload(`image-${values.title}-${uniqueID}`, imageFile, {
+                cacheControl: '3600',
+                upsert: false
+            });
+
 
         } catch (error) {
             toast.error("Something went wrong");
