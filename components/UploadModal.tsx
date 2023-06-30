@@ -2,16 +2,21 @@
 
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 import useUploadModal from "@/hooks/useUploadModal";
+import { useUser } from "@/hooks/useUser";
 
 import Modal from "./Modal";
 import Input from "./Input";
 import Button from "./Button";
 
+
+
 const UploadModal = () => {
-    const [isLoading, setIsLoading] = useState();
+    const [isLoading, setIsLoading] = useState(false);
     const uploadModal = useUploadModal();
+    const { user } = useUser();
 
     const {
         register,
@@ -37,7 +42,24 @@ const UploadModal = () => {
 
     // access to author, title, song, and image upon submit
     const onSubmit: SubmitHandler<FieldValues> = async (values) => {
-        // Upload to supabase
+        try {
+            setIsLoading(true);
+
+            const imageFile = values.image?.[0];
+            const songFile = values.song?.[0];
+
+            if (!imageFile || !songFile || !user) {
+                toast.error('Missing fields');
+                return;
+            }
+
+            
+
+        } catch (error) {
+            toast.error("Something went wrong");
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -91,7 +113,9 @@ const UploadModal = () => {
                         {...register('image', { required: true })} // spread props and attributes that we will need for input
                     />
                 </div>
-                <Button></Button>
+                <Button disabled={isLoading} type="submit">
+                    Create
+                </Button>
             </form>
         </Modal>
     );
