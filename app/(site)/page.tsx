@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
+export const revalidate = 0; // means the page won't be cached and data will be up to date
+
 export default function Home() {
   return (
     <div className="
