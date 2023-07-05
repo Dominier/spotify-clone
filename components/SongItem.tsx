@@ -39,9 +39,7 @@ const imagePath = useLoadImage(data);
                 className="
                     relative
                 ">
-                <Image 
-
-                />
+                
             </div>
         </div>
     );
