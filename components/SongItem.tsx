@@ -38,6 +38,11 @@ const imagePath = useLoadImage(data);
             <div
                 className="
                     relative
+                    aspect-square
+                    w-full
+                    h-full
+                    rounded-md
+                    overflow-hidden
                 ">
                 
             </div>
