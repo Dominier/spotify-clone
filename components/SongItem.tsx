@@ -45,7 +45,10 @@ const imagePath = useLoadImage(data);
                     overflow-hidden
                 ">
                 <Image 
-                    
+                    className="object-cover"
+                    src={imagePath || '/images/liked.png'}
+                    fill
+                    alt="Image"
                 />
             </div>
         </div>
