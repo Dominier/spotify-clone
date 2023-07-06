@@ -51,8 +51,13 @@ const imagePath = useLoadImage(data);
                     alt="Image"
                 />
             </div>
-            <div className="flex flx-col items-start w-full p-4 gap-y-1">
-                
+            <div className="flex flex-col items-start w-full p-4 gap-y-1">
+                <p className="font-semibold truncate w-full">
+                    {data.title}
+                </p>
+                <p>
+                    By {data.author}
+                </p>
             </div>
         </div>
     );
