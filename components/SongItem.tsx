@@ -44,7 +44,9 @@ const imagePath = useLoadImage(data);
                     rounded-md
                     overflow-hidden
                 ">
-                
+                <Image 
+                    
+                />
             </div>
         </div>
     );
