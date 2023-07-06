@@ -7,7 +7,7 @@ import UserProvider from '@/providers/UserProvider'
 import Sidebar from '@/components/Sidebar'
 import ModalProvider from '@/providers/ModalProvider'
 import ToasterProvider from '@/providers/ToasterProvider'
-import getSongsByUserId from '@/actions/getSongsByUserID'
+import getSongsByUserId from '@/actions/getSongsByUserId'
 
 const font = Figtree({ subsets: ['latin'] })
 
