@@ -51,6 +51,9 @@ const imagePath = useLoadImage(data);
                     alt="Image"
                 />
             </div>
+            <div className="flex flx-col items-start w-full p-4 gap-y-1">
+                
+            </div>
         </div>
     );
 }
