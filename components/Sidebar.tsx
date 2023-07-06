@@ -12,7 +12,7 @@ import { Song } from "@/types";
 
 interface SidebarProps {
     children: React.ReactNode;
-    songs: Song[]
+    songs: Song[];
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
