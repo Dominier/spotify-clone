@@ -29,7 +29,7 @@ const Library: React.FC<LibraryProps> = ({
 
         return uploadModal.onOpen();
     };
-    return(
+    return (
         <div className="flex flex-col">
             <div className="
                 flex
