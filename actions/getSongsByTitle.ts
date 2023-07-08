@@ -18,7 +18,7 @@ if (!title) {
   const { data, error } = await supabase
     .from('songs')
     .select('*')
-    .ilike('title', `%{title}%`)
+    .ilike('title', `%${title}%`)
     .order('created_at', { ascending: false })
 
   if (error) {
