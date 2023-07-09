@@ -1,5 +1,9 @@
 "use client";
 
+/*
+ This program will add liked songs assigned to userId when user clicks on the button
+ This program can also unlike songs assigned to userId when users clicks again.
+*/
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
