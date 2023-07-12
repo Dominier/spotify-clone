@@ -7,9 +7,11 @@
 import { Song } from "@/types";
 import { BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 
 import MediaItem from "./MediaItem";
 import LikeButton from "./LikeButton";
+import Slider from "./Slider";
 
 
 interface PlayerContentProps {
@@ -21,7 +23,9 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
     song,
     songUrl
 }) => {
-    const Icon = true ? BsPauseFill : BsPlayFill;
+    const Icon = true ? BsPauseFill : BsPlayFill; // FIXME: Make dyanamic
+    const VolumeIcon = true ? HiSpeakerXMark : HiSpeakerWave; // FIXME: Make dynamic
+
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="
@@ -62,7 +66,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 </div>
             </div>
 
-            <div // desktop view
+            <div // desktop view controls
                 className="
                     hidden
                     h-full
@@ -110,6 +114,17 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                         transition
                     "
                 />
+            </div>
+
+            <div className="hidden md:flex w-full justify-end pr-2">
+                <div className="flex items-center gap-x-2 w-[120px]">
+                    <VolumeIcon
+                        onClick={() => {}} // TODO: adjust volume
+                        className="cursor-pointer"
+                        size={34}
+                    />
+                    <Slider />
+                </div>
             </div>
         </div>
     );
