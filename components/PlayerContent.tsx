@@ -1,6 +1,8 @@
 /*
     This is the player content. It will display the song, like button, play, next, etc.
-    This will only appear when an user clicks on the play button
+    This will only appear when an user clicks on the play button.
+    The only problem is that playlist is on constant loop
+    TODO: Fix loop when playing songs
 */
 "use client"
 
