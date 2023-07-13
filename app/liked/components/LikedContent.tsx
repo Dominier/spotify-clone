@@ -2,6 +2,7 @@
 
 import LikeButton from "@/components/LikeButton";
 import MediaItem from "@/components/MediaItem";
+import useOnPlay from "@/hooks/useOnPlay";
 import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
 
@@ -17,6 +18,8 @@ const LikedContent: React.FC<LikedContentProps> = ({
 }) => {
     const router = useRouter();
     const { isLoading, user } = useUser();
+
+    const onPlay = useOnPlay(songs);
 
     // Only auth users can use
     useEffect(() => {
@@ -49,7 +52,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                 >
                     <div className="flex-1">
                         <MediaItem 
-                            onClick={() => {}}
+                            onClick={(id: string) => onPlay(id)} // plays liked songs
                             data={song}
                         />
                     </div>

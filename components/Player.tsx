@@ -3,6 +3,7 @@
 import useGetSongById from "@/hooks/useGetSongById";
 import usePlayer from "@/hooks/usePlayer";
 import useLoadSongUrl from "@/hooks/useLoadSongUrl";
+import PlayerContent from "./PlayerContent";
 
 const Player = () => {
     const player = usePlayer();
@@ -27,7 +28,11 @@ const Player = () => {
                 px-4
             "
         >
-            Player
+            <PlayerContent
+                key={songUrl} // songUrl is key b/c we want skip/next functionality
+                song={song}
+                songUrl={songUrl}
+            />
         </div>
     );
 }
