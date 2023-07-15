@@ -29,7 +29,7 @@ export const postData = async ({
     credentials: 'same-origin',
     body: JSON.stringify(data)
   });
-
+  // checks for error 
   if (!res.ok) {
     console.log('Error in postData', { url, data, res });
 
