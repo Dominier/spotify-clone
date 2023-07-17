@@ -46,4 +46,14 @@ const upsertPriceRecord = async (price: Stripe.Price) => {
         trial_period_days: price.recurring?.trial_period_days,
         metadata: price.metadata
     };
-}
+
+    const { error } = await supaBaseAdmin
+        .from('prices')
+        .upsert([priceData]);
+    
+    if (error) {
+        throw error;
+    }
+
+    console.log(`Price inserted/updated: ${price.id}`);
+};
