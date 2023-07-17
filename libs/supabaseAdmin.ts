@@ -1,3 +1,4 @@
+import { Subscription } from './../types';
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
@@ -118,3 +119,30 @@ const copyBillingDetailsToCustomer = async (
 };
 
 // manage subscription
+const manageSubscriptionStatusChange = async (
+    subscriptionId: string,
+    customerId: string,
+    createAction = false
+) => {
+    // Get customer's UUID from mapping table
+    const { data: customerData, error: noCustomerError } = await supabaseAdmin
+        .from('customers')
+        .select('id')
+        .eq('stripe_customer_id', customerId)
+        .single();
+    if (noCustomerError) throw noCustomerError;
+
+    const { id: uuid } = customerData!;
+    
+    const subscription = await stripe.subscriptions.retrieve(
+        subscriptionId, 
+        {
+        expand: ['default_payment_method'] 
+        }
+    );
+
+    // subscription data
+    const SubscriptionData: Database["public"]["Tables"]["subscriptions"]["Insert"] = {
+        
+    }
+}
