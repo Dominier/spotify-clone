@@ -7,7 +7,7 @@ import { Price, Product } from "@/types";
 import { stripe } from "./stripe";
 import { toDateTime } from "./helpers";
 
-export const supaBaseAdmin = createClient<Database>(
+export const supabaseAdmin = createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL || '',
     process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 );
@@ -22,7 +22,7 @@ const upsertProductRecord = async (product: Stripe.Product) => {
         metadata: product.metadata
     };
     
-    const { error } = await supaBaseAdmin
+    const { error } = await supabaseAdmin
         .from('products')
         .upsert([productData]);
     if (error) {
@@ -47,7 +47,7 @@ const upsertPriceRecord = async (price: Stripe.Price) => {
         metadata: price.metadata
     };
 
-    const { error } = await supaBaseAdmin
+    const { error } = await supabaseAdmin
         .from('prices')
         .upsert([priceData]);
     
@@ -57,3 +57,18 @@ const upsertPriceRecord = async (price: Stripe.Price) => {
 
     console.log(`Price inserted/updated: ${price.id}`);
 };
+
+// Retrieve customer
+const createOrRetrieveCustomer = async ({
+  email,
+  uuid  
+}: {
+    email: string;
+    uuid: string;
+}) => {
+    const { data, error } = await supabaseAdmin
+        .from('customers')
+        .select('stripe_customer_id')
+        .eq('id', uuid)
+        .single();
+}
