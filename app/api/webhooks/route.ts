@@ -8,7 +8,7 @@ import {
   upsertPriceRecord,
   manageSubscriptionStatusChange
 } from '@/libs/supabaseAdmin';
-
+// TODO: double check code after completion 
 // event types
 const relevantEvents = new Set([
   'product.created',
@@ -60,8 +60,25 @@ export async function POST(
               event.type === 'customer.subscription.created' // activates the createAction
             );
             break;
-            
+          case 'checkout.session.completed':
+              const checkoutSession = event.data.object as Stripe.Checkout.Session;
+              if (checkoutSession.mode === 'subscription') {
+                const subscriptionId = checkoutSession.subscription;
+                await manageSubscriptionStatusChange(
+                  subscriptionId as string,
+                  checkoutSession.customer as string,
+                  true
+                );
+              }
+              break;
+            default:
+              throw new Error('Unhandled relevant event');
         }
+      } catch (error) {
+        console.log(error);
+        return new NextResponse('Webhook error: "Webhook handler failed. View logs."', { status: 400 });
       }
     }
+
+    return NextResponse.json({ recieved: true }, {status: 200});
 }
