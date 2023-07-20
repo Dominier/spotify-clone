@@ -8,7 +8,7 @@ import {
   upsertPriceRecord,
   manageSubscriptionStatusChange
 } from '@/libs/supabaseAdmin';
-// TODO: double check code after completion 
+
 // event types
 const relevantEvents = new Set([
   'product.created',
@@ -81,4 +81,4 @@ export async function POST(
     }
 
     return NextResponse.json({ recieved: true }, {status: 200});
-}
+};
