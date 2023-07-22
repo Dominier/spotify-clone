@@ -1,3 +1,5 @@
+// Resembles the header of the spotify app
+// Contains head navigation bar
 "use client";
 import { useRouter } from "next/navigation"; 
 import { twMerge } from "tailwind-merge";
