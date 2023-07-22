@@ -1,3 +1,4 @@
+// Error message that pops up whenever there's conflict.
 "use client"
 
 import Box from "@/components/Box";
