@@ -1,3 +1,4 @@
+// Retrieves songs from supabase
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
