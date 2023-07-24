@@ -21,6 +21,6 @@ const getActiveProductsWithPrices = async (): Promise<ProductWithPrice[]> => {
   }
 
   return (data as any) || [];
-};
+}
 
 export default getActiveProductsWithPrices;
