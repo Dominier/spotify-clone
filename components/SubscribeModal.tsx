@@ -1,8 +1,21 @@
 "use client";
 
+import { ProductWithPrice } from "@/types";
 import Modal from "./Modal";
 
-const SubscribeModal = () => {
+interface SubscribeModalProps {
+    products: ProductWithPrice[];
+}
+
+const SubscribeModal: React.FC<SubscribeModalProps> = ({
+    products
+}) => {
+    let content = (
+        <div className="text-center">
+            No products available.
+        </div>
+    );
+
     return (
         <Modal
             title="Only for premium users"
@@ -10,7 +23,7 @@ const SubscribeModal = () => {
             isOpen
             onChange={() => {}}
         >
-            Subscription
+            {content}
         </Modal>
     );
 }
