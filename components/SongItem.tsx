@@ -1,3 +1,4 @@
+// Displays name, title, and image of song.
 "use client"
 
 import useLoadImage from "@/hooks/useLoadImage";
