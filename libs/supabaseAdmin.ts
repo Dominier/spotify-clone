@@ -1,4 +1,3 @@
-import { Subscription } from './../types';
 import Stripe from "stripe";
 import { createClient } from "@supabase/supabase-js";
 
@@ -93,7 +92,7 @@ const createOrRetrieveCustomer = async ({
 
         console.log(`New customer created and inserted for ${uuid}`);
         return customer.id;
-    };
+    }
     
     return data.stripe_customer_id;
 };
