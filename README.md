@@ -35,3 +35,6 @@ This project uses Supabase as a Database. If you plan on using this project, set
 - Toast package
 - zustand package
 - use-sound package
+
+## Video Showcase
+https://youtu.be/l6DxuZL-txI
